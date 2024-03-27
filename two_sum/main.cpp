@@ -2,12 +2,26 @@
 #include <vector>
 using namespace std;
 
-int main() {
-  vector<int> nums;
-  int input;
+class Solution {
+public:
+  vector<int> twoSum(vector<int>& nums, int target) {
+    for (int i = 0; i < nums.size(); i++) {
+      for (int j = i + 1; j < nums.size(); j++) {
+        if (nums[i] + nums[j] == target) {
+          // cout << i << " " << j << "\n";
+          return {i, j};
+        }
+      }
+    }
+    return {};
+  }
+};
+
+int main(void) {
+  Solution test;
   int target;
-  size_t a = -1;
-  size_t b = -1;
+  int input;
+  vector<int> nums;
 
   cin >> target;
 
@@ -15,19 +29,5 @@ int main() {
     nums.push_back(input);
   }
 
-
-  for (size_t i = 0; i < nums.size(); i++) {
-    int x = nums[i];
-    for (size_t j = 0; j < nums.size(); j++) {
-      int y = nums[j];
-      if (x + y == target) {
-        a = i;
-        b = j;
-        break;
-      }
-    }
-  }
-
-  cout << "[" << a << "," << b << "]\n";
-
+  test.twoSum(nums, target); 
 }
