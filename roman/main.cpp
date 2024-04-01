@@ -28,22 +28,21 @@ public:
 
         int answer = 0;
         pair <char, int> current_pair;
-        pair <char, int> next_pair;
+        pair <char, int> last_pair;
         for (int i = 0; i < s.size(); i++) {
             for (int j = 0; j < numbers.size(); j++) {
                 current_pair = numbers[j];
-                // cout << current_pair.first << endl;
-                if (s[i] == current_pair.first) {
-                    if (j != 0) {
-                        next_pair = numbers[j-1];
-                        if (s[i+1] == next_pair.first && next_pair.second > current_pair.second) {
-                            answer+= next_pair.second - current_pair.second;
-                        }
+                if (current_pair.first == s[i]) {
+                    if (last_pair.second < current_pair.second && i != 0) {                // IV
+                        answer -= last_pair.second;                                        // last pair = I, current_pair = V, answer = 4
+                        answer += current_pair.second - last_pair.second;
                     }
                     else {
                         answer += current_pair.second;
+                        last_pair = current_pair;
                     }
                 }
+
             }
         }
         return answer;
@@ -52,14 +51,15 @@ public:
 
 int main() {
     Solution test;
-    // cout << test.romanToInt("I") << endl;
-    // cout << test.romanToInt("V") << endl;
-    // cout << test.romanToInt("X") << endl;
-    // cout << test.romanToInt("L") << endl;
-    // cout << test.romanToInt("C") << endl;
-    // cout << test.romanToInt("D") << endl;
-    // cout << test.romanToInt("M") << endl;
+    cout << test.romanToInt("I") << endl;
+    cout << test.romanToInt("V") << endl;
+    cout << test.romanToInt("X") << endl;
+    cout << test.romanToInt("L") << endl;
+    cout << test.romanToInt("C") << endl;
+    cout << test.romanToInt("D") << endl;
+    cout << test.romanToInt("M") << endl;
     cout << test.romanToInt("IV") << endl;
     cout << test.romanToInt("CM") << endl;
+    cout << test.romanToInt("MCMXCIV") << endl;
     return 0;
 }
