@@ -52,12 +52,14 @@ public:
 
 int main() {
     Solution test;
-    cout << test.romanToInt("I") << endl;
-    cout << test.romanToInt("V") << endl;
-    cout << test.romanToInt("X") << endl;
-    cout << test.romanToInt("L") << endl;
-    cout << test.romanToInt("C") << endl;
-    cout << test.romanToInt("D") << endl;
-    cout << test.romanToInt("M") << endl;
+    // cout << test.romanToInt("I") << endl;
+    // cout << test.romanToInt("V") << endl;
+    // cout << test.romanToInt("X") << endl;
+    // cout << test.romanToInt("L") << endl;
+    // cout << test.romanToInt("C") << endl;
+    // cout << test.romanToInt("D") << endl;
+    // cout << test.romanToInt("M") << endl;
+    cout << test.romanToInt("IV") << endl;
+    cout << test.romanToInt("CM") << endl;
     return 0;
 }
